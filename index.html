@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>spotifyclip</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- 1. Le clip animé (Three.js dessine ici) -->
+    <canvas id="stage"></canvas>
+
+    <!-- 2. Les paroles synchronisées -->
+    <main id="lyrics" aria-live="polite">
+      <p class="line prev"></p>
+      <p class="line current"></p>
+      <p class="line next"></p>
+      <p class="hint"></p>
+    </main>
+
+    <!-- 3. Écran d'accueil (affiché seulement en cas de problème avec le pont) -->
+    <section id="welcome" hidden>
+      <p class="eyebrow">clip vivant · v1</p>
+      <h1>Chaque chanson<br />mérite son clip.</h1>
+      <p class="lede">
+        Paroles synchronisées, couleurs tirées de la pochette, et des visuels qui dansent sur le
+        rythme. Tout tourne sur ton ordinateur, gratuitement.
+      </p>
+      <div id="welcome-action"></div>
+    </section>
+
+    <!-- 4. Morceau en cours -->
+    <footer id="now-playing" hidden>
+      <img id="np-cover" alt="" />
+      <div class="np-text">
+        <p id="np-title"></p>
+        <p id="np-artist"></p>
+        <div class="np-bar"><span id="np-progress"></span></div>
+      </div>
+    </footer>
+
+    <!-- 5. Boutons -->
+    <nav id="controls" hidden>
+      <span id="audio-status" class="pill">son simulé</span>
+      <button id="btn-system" title="Capter le son de l'ordinateur">Son du PC</button>
+      <button id="btn-mic" title="Utiliser le micro">Micro</button>
+      <button id="btn-full" title="Plein écran (F)">Plein écran</button>
+    </nav>
+
+    <div id="toast" role="status"></div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
